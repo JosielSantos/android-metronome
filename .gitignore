@@ -1,0 +1,26 @@
+# Android Studio
+*.iml
+*.ipr
+*.iws
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/misc.xml
+**/.idea/modules.xml
+**/.idea/gradle.xml
+**/.idea/runConfigurations.xml
+**/.idea/datasources.xml
+**/.idea/dataSources.ids
+**/.idea/shelf
+**/.idea/libraries
+**/.idea/dictionaries
+local.properties
+
+# Gradle
+.gradle
+build/
+
+# Build files
+/build
+
+# Mac
+.DS_Store

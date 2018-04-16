@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Metrônomo</string>
+    <string name="btn_setDefault">Setar esses valores como padrão</string>
+    <string name="lbl_eBpm">Batidas por minuto (BPM)</string>
+    <string name="lbl_eBpc">Batidas por compasso</string>
+    <string name="exit">Sair</string>
+    <string name="play">Tocar</string>
+    <string name="playing">Tocando</string>
+    <string name="tapTempo">Tocar ritmo</string>
+    <string name="wait2secToListenResult">Aguarde 2 segundos para ouvir o resultado</string>
+    <string name="tapRithm">toque ritmicamente em qualquer lugar da tela para programar o metrônomo</string>
+    <string name="assumeDefaultValues">Assumir valores padrões</string>
+    <string name="settings">Configurações</string>
+
+    <string name="pref_pass_taptempo_bpm_to_mainscreen_title">Passar BPM detectado pelo tocar rítmo para a tela principal</string>
+    <string name="pref_stop_for_other_apps_title">Parar metrônomo quando outro APP começar a tocar áudio</string>
+</resources>

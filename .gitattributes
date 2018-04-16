@@ -1,0 +1,8 @@
+*        text=auto
+*.md		text
+*.xml		text
+*.java		text
+*.kt		text
+*.bat	text eol=crlf
+*.sh		text eol=lf
+*.apk		-text

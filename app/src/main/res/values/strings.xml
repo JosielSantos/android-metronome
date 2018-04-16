@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Metronome</string>
+    <string name="btn_setDefault">Set actual values as default</string>
+    <string name="lbl_eBpm">Beats per minute (BPM)</string>
+    <string name="lbl_eBpc">Beats per cicle</string>
+    <string name="exit">Exit</string>
+    <string name="play">Play</string>
+    <string name="playing">Playing</string>
+    <string name="tapTempo">Tap tempo</string>
+    <string name="wait2secToListenResult">Wait 2 seconds to listen the result</string>
+    <string name="tapRithm">Tap rhythm anywhere on the screen to program the metronome</string>
+    <string name="assumeDefaultValues">Assume default values</string>
+    <string name="settings">Settings</string>
+
+    <string name="pref_pass_taptempo_bpm_to_mainscreen_title">Pass BPM detected by TapTempo to main screen</string>
+    <string name="pref_stop_for_other_apps_title">Stop metronome when other APP starts playing audio</string>
+</resources>
