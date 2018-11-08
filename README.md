@@ -1,18 +1,18 @@
-# Metrônomo
+# MetrÃ´nomo
 
-Um metrônomo simples para Android.
+Um metrÃ´nomo simples para Android.
 
 ## To do
 
-* Configuração para mudar os sons do metrônomo
+* ConfiguraÃ§Ã£o para mudar os sons do metrÃ´nomo
 * Flash piscante
 
-## Créditos
+## CrÃ©ditos
 
 * [javonharper/Tempo: Android BPM Calculator][tempo_repo]
 App para tap tempo
 
-## Licença
+## LicenÃ§a
 
 [The MIT license][license]
 
