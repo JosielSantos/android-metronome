@@ -8,7 +8,10 @@ import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.NumberPicker;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -23,6 +26,8 @@ public class Metronome extends Base implements MetronomeListener
     private EditText etMeasure;
     private SeekBar volumeBar;
     private ToggleButton btnPlayStop;
+    private Spinner noteFiguresList;
+    private float[] noteFigures = {0.25F, 0.5F, 1.0F, 2.0F};
 
     private void setDefaultValues()
     {
@@ -82,6 +87,7 @@ public class Metronome extends Base implements MetronomeListener
         setupNpbpm();
         setupEtMeasure();
         setupVolumeBar();
+        setupNoteFiguresList();
         btnPlayStop=(ToggleButton)findViewById(R.id.btnPlayStop);
         setDefaultValues();
     }
@@ -131,6 +137,22 @@ public class Metronome extends Base implements MetronomeListener
             }
             @Override public void onStartTrackingTouch(SeekBar seekBar) { }
             @Override public void onStopTrackingTouch(SeekBar seekBar) { }
+        });
+    }
+
+    private void setupNoteFiguresList()
+    {
+        noteFiguresList=(Spinner)findViewById(R.id.noteFiguresList);
+        String[] figureNames=new String[] {"Semicolcheia", "Colcheia", "Semínima", "Mínima"};
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, figureNames);
+        noteFiguresList.setAdapter(adapter);
+        noteFiguresList.setSelection(2);
+        noteFiguresList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                metr.setNoteLength(noteFigures[pos]);
+                metr.restartIfPlaying();
+            }
+            @Override public void onNothingSelected(AdapterView<?> parent) { }
         });
     }
 

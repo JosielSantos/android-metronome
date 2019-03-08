@@ -89,4 +89,12 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
     />
+    <Spinner android:id="@+id/noteFiguresList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@id/btnPlayStop"
+        android:spinnerMode="dropdown"
+    />
 </RelativeLayout>

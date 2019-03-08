@@ -19,6 +19,7 @@ public class Metronome implements AudioManager.OnAudioFocusChangeListener
     private SoundPool sp=null;
     private int soundId1, soundId2;
     private int bpm=120, measure=4, volume=100;
+    private float noteLength=1.0F;
     private MetronomeListener listener=null;
     private boolean hasAudioFocus=false;
 
@@ -68,6 +69,12 @@ public class Metronome implements AudioManager.OnAudioFocusChangeListener
         return this;
     }
 
+    public Metronome setNoteLength(float noteLength)
+    {
+        this.noteLength=noteLength;
+        return this;
+    }
+
     public Metronome setVolume(int volume)
     {
         this.volume=volume;
@@ -102,6 +109,7 @@ public class Metronome implements AudioManager.OnAudioFocusChangeListener
             playerThread=new Thread(player, "MetronomePlayer");
             player.setBpm(bpm);
             player.setMeasure(measure);
+        player.setNoteLength(noteLength);
             player.setVolume(volume);
             playerThread.start();
             if(listener!=null) {

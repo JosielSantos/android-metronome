@@ -6,6 +6,7 @@ public class MetronomePlayer implements Runnable
 {
     private int bpm=120;
     private int measure=4;
+    private float noteLength=1.0F;
     private float volume=1.0F;
     private volatile boolean playing=false;
     private SoundPool sp;
@@ -43,6 +44,17 @@ public class MetronomePlayer implements Runnable
         return this;
     }
 
+    public float getNoteLength()
+    {
+        return noteLength;
+    }
+
+    public MetronomePlayer setNoteLength(float noteLength)
+    {
+        this.noteLength=noteLength;
+        return this;
+    }
+
     public float getVolume()
     {
         return volume;
@@ -69,15 +81,22 @@ public class MetronomePlayer implements Runnable
     public void run()
     {
         playing=true;
-        for(long beat=0; playing; ++beat) {
-            if(beat%measure==0) {
+        int beatsPerMeasure=Math.round(measure/noteLength);
+        int beat=1;
+        while(playing) {
+            if(beat==1) {
                 sp.play(id1, volume, volume, 0, 0, 1.0F);
             } else {
                 sp.play(id2, volume, volume, 0, 0, 1.0F);
             }
             try {
-                Thread.sleep((long)60000/bpm);
+                Thread.sleep((long)Math.round(60000/bpm*noteLength));
             } catch(InterruptedException intExc) {
+            }
+            if(beat==beatsPerMeasure) {
+                beat=1;
+            } else {
+                beat++;
             }
         }
         return;
