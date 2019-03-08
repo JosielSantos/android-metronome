@@ -1,22 +1,31 @@
 package com.josantos.metronome;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.media.SoundPool;
 
-public class MetronomePlayer implements Runnable
+public class MetronomePlayer
 {
     private int bpm=120;
     private int measure=4;
     private float noteLength=1.0F;
     private float volume=1.0F;
+
     private volatile boolean playing=false;
     private SoundPool sp;
     private int id1, id2;
+    private Timer timer;
+    private TimerTask task=null;
+    private int beatsPerMeasure=4;
+    private int beat=1;
 
     public MetronomePlayer(SoundPool sp, int id1, int id2)
     {
         this.sp=sp;
         this.id1=id1;
         this.id2=id2;
+        this.timer=new Timer("metronomePlayer");
     }
 
     public int getBpm()
@@ -72,26 +81,35 @@ public class MetronomePlayer implements Runnable
         return playing;
     }
 
-    public void setPlaying(boolean playing)
-    {
-        this.playing=playing;
-    }
-
-    @Override
-    public void run()
+    public void start()
     {
         playing=true;
-        int beatsPerMeasure=Math.round(measure/noteLength);
-        int beat=1;
-        while(playing) {
+        beatsPerMeasure=Math.round(measure/noteLength);
+        beat=1;
+        long interval=Math.round(60000/bpm*noteLength);
+        task=new TimerTask() {
+            public void run()
+            {
+                advance();
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0l, interval);
+    }
+
+    public void stop()
+    {
+        task.cancel();
+        task=null;
+        playing=false;
+    }
+
+    private void advance()
+    {
+        if(playing) {
             if(beat==1) {
                 sp.play(id1, volume, volume, 0, 0, 1.0F);
             } else {
                 sp.play(id2, volume, volume, 0, 0, 1.0F);
-            }
-            try {
-                Thread.sleep((long)Math.round(60000/bpm*noteLength));
-            } catch(InterruptedException intExc) {
             }
             if(beat==beatsPerMeasure) {
                 beat=1;

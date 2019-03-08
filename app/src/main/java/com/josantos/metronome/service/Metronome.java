@@ -15,7 +15,6 @@ public class Metronome implements AudioManager.OnAudioFocusChangeListener
     private Context context;
     private AudioManager audioManager;
     private MetronomePlayer player;
-    private Thread playerThread=null;
     private SoundPool sp=null;
     private int soundId1, soundId2;
     private int bpm=120, measure=4, volume=100;
@@ -84,7 +83,7 @@ public class Metronome implements AudioManager.OnAudioFocusChangeListener
 
     public boolean isPlaying()
     {
-        return player.isPlaying() && playerThread!=null;
+        return player.isPlaying();
     }
 
     public boolean stopForOtherAudioApps()
@@ -106,12 +105,11 @@ public class Metronome implements AudioManager.OnAudioFocusChangeListener
             }
         }
         if(canPlay) {
-            playerThread=new Thread(player, "MetronomePlayer");
             player.setBpm(bpm);
             player.setMeasure(measure);
         player.setNoteLength(noteLength);
             player.setVolume(volume);
-            playerThread.start();
+            player.start();
             if(listener!=null) {
                 listener.onMetrPlay();
             }
@@ -121,9 +119,7 @@ public class Metronome implements AudioManager.OnAudioFocusChangeListener
     public void stop()
     {
         if(isPlaying()) {
-            player.setPlaying(false);
-            playerThread.interrupt();
-            playerThread=null;
+            player.stop();
             if(hasAudioFocus) {
                 audioManager.abandonAudioFocus(this);
                 hasAudioFocus=false;
