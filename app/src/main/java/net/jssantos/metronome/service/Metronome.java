@@ -1,4 +1,4 @@
-package com.josantos.metronome.service;
+package net.jssantos.metronome.service;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.preference.PreferenceManager;
 
-import com.josantos.metronome.MetronomePlayer;
+import net.jssantos.metronome.MetronomePlayer;
 
 public class Metronome implements AudioManager.OnAudioFocusChangeListener
 {

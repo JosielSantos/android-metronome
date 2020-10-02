@@ -1,4 +1,4 @@
-package com.josantos.metronome.ui.activity;
+package net.jssantos.metronome.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,8 +17,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.josantos.metronome.R;
-import com.josantos.metronome.service.Metronome.MetronomeListener;
+import net.jssantos.metronome.R;
+import net.jssantos.metronome.service.Metronome.MetronomeListener;
 
 public class Metronome extends Base implements MetronomeListener
 {
@@ -62,8 +62,8 @@ public class Metronome extends Base implements MetronomeListener
     {
         metr.stop();
         Intent tapTempoIntent=new Intent(this, TapTempo.class);
-        tapTempoIntent.putExtra("com.josantos.metronome.actualBpm", npbpm.getValue());
-        tapTempoIntent.putExtra("com.josantos.metronome.measure", Integer.parseInt(etMeasure.getText().toString()));
+        tapTempoIntent.putExtra("net.jssantos.metronome.actualBpm", npbpm.getValue());
+        tapTempoIntent.putExtra("net.jssantos.metronome.measure", Integer.parseInt(etMeasure.getText().toString()));
         startActivityForResult(tapTempoIntent, 0);
     }
 

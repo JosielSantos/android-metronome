@@ -1,11 +1,11 @@
-package com.josantos.metronome.ui.fragment;
+package net.jssantos.metronome.ui.fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
-import com.josantos.metronome.R;
+import net.jssantos.metronome.R;
 
 public class Settings extends PreferenceFragment
 {

@@ -1,4 +1,4 @@
-package com.josantos.metronome;
+package net.jssantos.metronome;
 
 import java.util.Timer;
 import java.util.TimerTask;

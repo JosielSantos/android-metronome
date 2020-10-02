@@ -1,4 +1,4 @@
-package com.josantos.metronome;
+package net.jssantos.metronome;
 
 import android.app.Application;
 

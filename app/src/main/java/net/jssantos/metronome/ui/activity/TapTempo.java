@@ -1,4 +1,4 @@
-package com.josantos.metronome.ui.activity;
+package net.jssantos.metronome.ui.activity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -14,7 +14,7 @@ import android.view.View.OnTouchListener;
 import android.widget.TextView;
 
 import com.javonharper.tempo.BpmCalculator;
-import com.josantos.metronome.R;
+import net.jssantos.metronome.R;
 
 public class TapTempo extends Base
 {
@@ -29,7 +29,7 @@ public class TapTempo extends Base
         setContentView(R.layout.act_tap_tempo);
         bpmCalculator = new BpmCalculator();
         Intent intent=getIntent();
-        measure=intent.getIntExtra("com.josantos.metronome.measure", 4);
+        measure=intent.getIntExtra("net.jssantos.metronome.measure", 4);
         metr.setMeasure(measure);
     }
 

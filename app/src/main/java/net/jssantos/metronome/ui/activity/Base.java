@@ -1,4 +1,4 @@
-package com.josantos.metronome.ui.activity;
+package net.jssantos.metronome.ui.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 
-import com.josantos.metronome.service.Metronome;
-import com.josantos.metronome.R;
+import net.jssantos.metronome.service.Metronome;
+import net.jssantos.metronome.R;
 
 public abstract class Base extends Activity
 {
