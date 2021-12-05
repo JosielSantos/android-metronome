@@ -1,4 +1,4 @@
-name: Minimal Android CI Workflow
+name: metronome workflow
 
 on:
   push:
